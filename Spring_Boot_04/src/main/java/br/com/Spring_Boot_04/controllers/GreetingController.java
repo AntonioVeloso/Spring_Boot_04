@@ -13,7 +13,7 @@ public class GreetingController {
     private  static final String modeloMensagem="Olá, %s!";
     private  final  AtomicLong counter= new AtomicLong();
 
-    //http://localhost:8080/greeting?name=veloso
+    //http://localhost:8080/greeting?name=Veloso
     @RequestMapping("/greeting")
     public Greeting greeting(
             @RequestParam(value = "name", defaultValue = "no aguardo")

@@ -1,4 +1,4 @@
-package Spring_Boot_04;
+package br.com.Spring_Boot_04;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

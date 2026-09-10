@@ -1,4 +1,4 @@
-package Spring_Boot_04;
+package br.com.Spring_Boot_04;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

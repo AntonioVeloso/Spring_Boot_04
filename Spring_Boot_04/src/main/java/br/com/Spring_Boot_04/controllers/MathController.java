@@ -12,34 +12,28 @@ public class MathController {
     @RequestMapping("/sum/{numberOne}/{numberTwo}")
     public Double sun
     (       @PathVariable("numberOne") String numberOne,
-            @PathVariable("numberTwo") String numberTwo  ) throws Exception {
+            @PathVariable("numberTwo") String numberTwo
+    ) throws Exception {
 
-
-        if(isNumeber(numberOne) || isNumeber(numberTwo)) throw new IllegalArgumentException();
+        if(!isNumber(numberOne) || !isNumber(numberTwo)) throw new UnsupportedOperationException("Por favor insirar um valor numérico!");
         return convertToDouble(numberOne)+convertToDouble(numberTwo);
     }
 
     private Double convertToDouble(String strNumber) throws IllegalArgumentException {
-        if(strNumber==null || strNumber.isEmpty()) throw new IllegalArgumentException();
+        if(strNumber==null || strNumber.isEmpty()) throw new UnsupportedOperationException("please set a numeric value!");
         String number = strNumber.replace(",", ".");
         return  Double.parseDouble(number);
     }
 
-    private boolean isNumeber(String strNumber) {
-        boolean valida;
-        String number;
-
+    private boolean isNumber(String strNumber) {
         if(strNumber==null || strNumber.isEmpty()){
             return false;
-        }else {
-            number = strNumber.replace(",", ".");
-            //String number = strnumber.replace(",", "."); add automaticamnete o target
-            //return number.matches("[-+]?[0-9]*\\.[0-9]+");
-            return valida = number.matches("[-+]?[0-9]*\\.[0-9]+");
         }
-
-
-
+            String number = strNumber.replace(",", ".");
+            //String number = strnumber.replace(",", "."); add automaticamnete o target
+            //return number.matches("[-+]?[0-9]*\\.?[0-9]+");
+            // Retorna direto a validação do Regex, sem criar variáveis inúteis
+        return number.matches("[-+]?[0-9]*\\.?[0-9]+");
 
     }
 

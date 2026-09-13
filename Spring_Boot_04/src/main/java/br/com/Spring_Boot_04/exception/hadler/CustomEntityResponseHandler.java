@@ -24,6 +24,7 @@ public class CustomEntityResponseHandler extends ResponseEntityExceptionHandler 
                 ex.getMessage(),
                 request.getDescription(false)
         );
+        //erro http 500
         return  new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
